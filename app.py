@@ -1,3 +1,4 @@
+import os
 import gradio as gr
 import ollama
 
@@ -156,4 +157,5 @@ with gr.Blocks(theme=gr.themes.Soft(primary_hue="teal", secondary_hue="slate"), 
 
 if __name__ == "__main__":
     # Inicia e gera o link público de 72h
-    app.launch(share=True)
+    port = int(os.environ.get("PORT", 10000))
+   demo.launch(server_name="0.0.0.0", server_port=port)
