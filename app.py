@@ -62,17 +62,17 @@ def analisar_incidente_local(descricao_evento, fatores_paciente, fatores_equipa,
     
     try:
         resposta = client.chat.completions.create(
-            model="llama-3.1-8b-instant",  # Nome do modelo oficial na Groq
+            model="llama-3.1-8b-instant",
             messages=[
             {"role": "system", "content": prompt_sistema},
             {"role": "user", "content": conteudo_usuario}
             ],
-            temperature=0.2  # Na Groq, a temperatura fica direto no comando (sem "options")
-            )
-            return resposta.choices[0].message.content
+            temperature=0.2
+        )
+        return resposta.choices[0].message.content
         
     except Exception as e:
-            return f"⚠️ **Erro ao comunicar com o Ollama local:** {str(e)}"
+        return f"⚠️ **Erro ao comunicar com o Groq:** {str(e)}"
 
 # --- CUSTOMIZAÇÃO VISUAL (CSS) ---
 # Aqui definimos a cor do botão principal (Verde Hospitalar Moderno) e ajustes de fontes
