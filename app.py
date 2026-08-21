@@ -62,7 +62,7 @@ def analisar_incidente_local(descricao_evento, fatores_paciente, fatores_equipa,
     
     try:
         resposta = client.chat.completions.create(
-            model="llama-3.1-8b-instant",
+            model="openai/gpt-oss-20b",
             messages=[
             {"role": "system", "content": prompt_sistema},
             {"role": "user", "content": conteudo_usuario}
